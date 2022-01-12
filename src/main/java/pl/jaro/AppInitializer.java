@@ -14,7 +14,7 @@ public class AppInitializer extends AbstractAnnotationConfigDispatcherServletIni
 
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new Class[]{pl.jaro.app.AppConfig.class};
+        return new Class[]{pl.jaro.AppConfig.class};
     }
 
     @Override

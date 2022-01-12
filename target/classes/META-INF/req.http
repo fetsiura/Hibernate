@@ -1,0 +1,22 @@
+POST localhost:8080/books/add/first
+
+###
+
+GET localhost:8080/books/1
+
+###
+
+POST localhost:8080/books/update/1/Germiona
+
+###
+DELETE localhost:8080/books/delete/1
+
+###
+
+POST localhost:8080/authors/add/jaro/majer
+
+###
+GET localhost:8080/books/1
+
+###
+GET localhost:8080/books/conditions?authorName=Bruce
