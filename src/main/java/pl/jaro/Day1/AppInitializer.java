@@ -1,4 +1,4 @@
-package pl.jaro;
+package pl.jaro.Day1;
 
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
@@ -14,7 +14,7 @@ public class AppInitializer extends AbstractAnnotationConfigDispatcherServletIni
 
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new Class[]{pl.jaro.AppConfig.class};
+        return new Class[]{AppConfig.class};
     }
 
     @Override

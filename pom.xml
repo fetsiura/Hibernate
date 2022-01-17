@@ -60,6 +60,21 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.17</version>
         </dependency>
+
+
+<!--        mapowanie body na json-->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>2.11.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.11.2</version>
+        </dependency>
+
 <!--tutaj dla wersji wyżej niż 8-->
 <!--        <dependency>-->
 <!--            <groupId>javax.activation</groupId><artifactId>activation</artifactId>-->

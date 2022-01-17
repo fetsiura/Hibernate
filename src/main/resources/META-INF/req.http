@@ -1,22 +1,31 @@
-POST localhost:8080/books/add/first
 
-###
+
+### pobieranie
 
 GET localhost:8080/books/1
+
+### tworzenie
+
+POST localhost:8080/books
+Content-Type: application/json
+
+{
+"title":  "some"}
 
 ###
 
 POST localhost:8080/books/update/1/Germiona
 
 ###
-DELETE localhost:8080/books/delete/1
+DELETE localhost:8080/books/2
+
 
 ###
 
 POST localhost:8080/authors/add/jaro/majer
 
 ###
-GET localhost:8080/books/1
+GET localhost:8080/books/2
 
 ###
 GET localhost:8080/books/conditions?authorName=Bruce
