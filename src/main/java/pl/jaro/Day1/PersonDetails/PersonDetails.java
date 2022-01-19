@@ -1,6 +1,6 @@
-package pl.jaro.Day1.Publisher;
+package pl.jaro.Day1.PersonDetails;
 
-import lombok.AllArgsConstructor;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -9,14 +9,18 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+@Entity
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "publishers")
-public class Publisher {
-
+public class PersonDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
+    private String firstName;
+    private String lastName;
+    private String streetNumber;
+    private String street;
+    private String city;
+
+
 }

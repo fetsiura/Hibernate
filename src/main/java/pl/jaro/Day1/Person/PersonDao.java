@@ -1,4 +1,4 @@
-package pl.jaro.Day1.Publisher;
+package pl.jaro.Day1.Person;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -6,9 +6,9 @@ import pl.jaro.Day1.common.GenericDao;
 
 @Transactional
 @Repository
-public class PublisherDao extends GenericDao<Publisher> {
-    public PublisherDao() {
+public class PersonDao extends GenericDao<Person> {
 
-        super(Publisher.class);
+    public PersonDao(){
+        super(Person.class);
     }
 }

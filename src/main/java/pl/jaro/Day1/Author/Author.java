@@ -3,18 +3,23 @@ package pl.jaro.Day1.Author;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import pl.jaro.Day1.Book.Book;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity(name = "authors")
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 public class Author {
 
     @Id
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String firstName;
     private String lastName;
+
+//    @ManyToMany(fetch = FetchType.EAGER)
+//    private List<Book> books = new ArrayList<>();
 }
