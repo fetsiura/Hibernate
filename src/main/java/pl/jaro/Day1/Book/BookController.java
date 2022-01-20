@@ -6,6 +6,7 @@ import pl.jaro.Day1.Author.Author;
 import pl.jaro.Day1.Author.AuthorDao;
 
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/books")
@@ -34,7 +35,7 @@ public class BookController {
     @ResponseBody
     public String get(@PathVariable Long id){
 
-        return bookDao.findById(id)
+        return bookDao.find(id)
                 .map(Objects::toString)
                 .orElse("book not exists");
     }
@@ -45,9 +46,9 @@ public class BookController {
     public void update(@PathVariable Long id,
                          @PathVariable String title){
 
-        Book book = bookDao.findById(id).orElseThrow(RuntimeException::new);
+        Book book = bookDao.find(id).orElseThrow(RuntimeException::new);
         book.setTitle(title);
-        bookDao.update(book);
+        bookDao.merge(book);
     }
 
     @DeleteMapping("/{id}")
@@ -56,4 +57,10 @@ public class BookController {
         bookDao.delete(id);
     }
 
+    @GetMapping
+    public String getBooks(){
+      return bookDao.findAll().stream()
+              .map(Book::toString)
+              .collect(Collectors.joining());
+    }
 }

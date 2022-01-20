@@ -1,42 +1,29 @@
 package pl.jaro.Day1.Book;
 
 
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import pl.jaro.Day1.common.GenericDao;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import java.util.Optional;
+import javax.persistence.Query;
+import java.util.List;
 
 
-@Slf4j
 @Repository
-@Transactional
-public class BookDao {
+public class BookDao extends GenericDao<Book> {
 
-    @PersistenceContext
-    EntityManager entityManager;
 
-    public void save(Book book){
-        log.info("Save book {}",book);
-        entityManager.persist(book);
-    }
-
-    public Optional<Book> findById (Long id){
-       return Optional.ofNullable(entityManager.find(Book.class,id));
+    public BookDao() {
+        super(Book.class);
     }
 
 
-    public Book update (Book book){
-        log.info("Update book {}",book);
-        return entityManager.merge(book);
-    }
 
+    @Transactional(readOnly = true)
+    public List<Book> findAll (){
 
-    public void delete(Long id){
+        Query query = entityManager.createQuery("select b from Book b");
 
-        findById(id).ifPresent(entityManager ::remove);
-
+        return query.getResultList();
     }
 }

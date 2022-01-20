@@ -8,6 +8,7 @@ import javax.persistence.Query;
 import java.util.List;
 import java.util.Optional;
 
+@Transactional
 public abstract class GenericDao<T> {
 
     private final Class<T> entityClass;

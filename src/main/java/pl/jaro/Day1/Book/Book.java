@@ -4,7 +4,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import pl.jaro.Day1.Author.Author;
 import pl.jaro.Day1.Publisher.Publisher;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;

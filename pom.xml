@@ -43,7 +43,7 @@
             <version>1.18.20</version>
             <scope>provided</scope>
         </dependency>
-            <!--     dotąd Spring , niżej Hibernate -->
+        <!--     dotąd Spring , niżej Hibernate -->
 
         <dependency>
             <groupId>org.hibernate</groupId>
@@ -62,7 +62,7 @@
         </dependency>
 
 
-<!--        mapowanie body na json-->
+        <!--        mapowanie body na json-->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
@@ -75,22 +75,22 @@
             <version>2.11.2</version>
         </dependency>
 
-<!--tutaj dla wersji wyżej niż 8-->
-<!--        <dependency>-->
-<!--            <groupId>javax.activation</groupId><artifactId>activation</artifactId>-->
-<!--            <version>1.1.1</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>javax.xml.bind</groupId><artifactId>jaxb-api</artifactId>-->
-<!--            <version>2.3.0</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>com.sun.xml.bind</groupId><artifactId>jaxb-core</artifactId>-->
-<!--            <version>2.3.0</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>com.sun.xml.bind</groupId><artifactId>jaxb-impl</artifactId>-->
-<!--            <version>2.3.0</version>-->
-<!--        </dependency>-->
+        <!--tutaj dla wersji wyżej niż 8-->
+        <!--        <dependency>-->
+        <!--            <groupId>javax.activation</groupId><artifactId>activation</artifactId>-->
+        <!--            <version>1.1.1</version>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>javax.xml.bind</groupId><artifactId>jaxb-api</artifactId>-->
+        <!--            <version>2.3.0</version>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.sun.xml.bind</groupId><artifactId>jaxb-core</artifactId>-->
+        <!--            <version>2.3.0</version>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.sun.xml.bind</groupId><artifactId>jaxb-impl</artifactId>-->
+        <!--            <version>2.3.0</version>-->
+        <!--        </dependency>-->
     </dependencies>
 </project>

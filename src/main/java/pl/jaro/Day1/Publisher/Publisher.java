@@ -1,6 +1,5 @@
 package pl.jaro.Day1.Publisher;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -10,7 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 @Entity(name = "publishers")
 public class Publisher {

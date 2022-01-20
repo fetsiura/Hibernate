@@ -1,6 +1,5 @@
 package pl.jaro.Day1.Author;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import pl.jaro.Day1.Book.Book;

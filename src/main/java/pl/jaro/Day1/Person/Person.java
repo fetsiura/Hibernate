@@ -6,7 +6,7 @@ import pl.jaro.Day1.PersonDetails.PersonDetails;
 
 import javax.persistence.*;
 
-@Entity
+@Entity(name = "persons")
 @Data
 @NoArgsConstructor
 public class Person {
