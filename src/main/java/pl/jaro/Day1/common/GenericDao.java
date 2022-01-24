@@ -42,10 +42,10 @@ public abstract class GenericDao<T> {
         find(id).ifPresent(entityManager::remove);
     }
 
-    public List<T> findAll(){
-        String question = "select entity from "+ entityClass.getSimpleName()+" entity";
-        Query query = entityManager.createQuery(question);
-        return query.getResultList();
-    }
+//    public List<T> findAll(){
+//        String question = "select entity from "+ entityClass.getSimpleName()+" entity";
+//        Query query = entityManager.createQuery(question);
+//        return query.getResultList();
+//    }
 
 }

@@ -6,6 +6,7 @@ import pl.jaro.Day1.Author.Author;
 import pl.jaro.Day1.Author.AuthorDao;
 
 import java.util.Objects;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Controller
@@ -58,9 +59,25 @@ public class BookController {
     }
 
     @GetMapping
-    public String getBooks(){
-      return bookDao.findAll().stream()
-              .map(Book::toString)
-              .collect(Collectors.joining());
+    @ResponseBody
+    public String getBooks(@RequestParam Optional<Integer> rating){
+    return rating.map(bookDao::getRatingList)
+                .orElseGet(bookDao::findAll)
+                .stream()
+                .map(Objects::toString)
+                .collect(Collectors.joining());
+
+    }
+
+    @GetMapping("/publisher")
+    @ResponseBody
+    public String getBooksWithPublishers(@RequestParam Optional<String> name){
+
+        return name.map( bookDao::definitelyPublisher)
+                .orElseGet(bookDao::ifPublisherExist)
+                .stream()
+                .map(Objects::toString)
+                .collect(Collectors.joining());
+
     }
 }

@@ -1,14 +1,17 @@
 package pl.jaro.Day1.Book;
 
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import pl.jaro.Day1.Author.Author;
 import pl.jaro.Day1.Publisher.Publisher;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @Entity
 @Table(name = "books")
@@ -29,5 +32,15 @@ public class Book {
 
     public void addAuthor(Author author){
         authors.add(author);
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", rating=" + rating +
+                ", description='" + description + '\'' +
+                '}';
     }
 }

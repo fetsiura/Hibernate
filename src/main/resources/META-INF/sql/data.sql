@@ -36,6 +36,7 @@ insert into publishers (id,name) values (3,'Dayli');
 insert into books (title, rating, description,publisher_id) values ('That Summer', 9, 'interesting',1)
 insert into books (title, rating, description,publisher_id) values ('Black Pirat', 5, 'amazing',2)
 insert into books (title, rating, description,publisher_id) values ('Ciber Wars', 4, 'not bad',3)
+insert into books (title, rating, description) values ('Without Publisher', 4, 'not bad')
 
 
 insert into books_authors(Book_id, authors_id) values (1,1);

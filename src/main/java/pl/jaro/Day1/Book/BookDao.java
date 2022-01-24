@@ -26,4 +26,30 @@ public class BookDao extends GenericDao<Book> {
 
         return query.getResultList();
     }
+
+    @Transactional(readOnly = true)
+    public List<Book> getRatingList(int rating){
+        Query query = entityManager.createQuery("select b from Book b where b.rating = :rating");
+       query.setParameter("rating",rating);
+        return query.getResultList();
+    }
+
+    @Transactional(readOnly = true)
+    public List<Book> ifPublisherExist(){
+        Query query = entityManager.createQuery("select b from Book b where b.publisher is not null ");
+        return query.getResultList();
+    }
+
+    @Transactional(readOnly = true)
+    public List<Book> definitelyPublisher(String name){
+        Query query = entityManager.createQuery("select b from Book b where b.publisher.name= :name");
+        query.setParameter("name",name);
+        return query.getResultList();
+    }
+    @Transactional(readOnly = true)
+    public List<Book> definitelyAuthor(String name){
+        Query query = entityManager.createQuery("select b from Book b JOIN b.authors a where a.firstName= :name");
+        query.setParameter("name",name);
+        return query.getResultList();
+    }
 }
