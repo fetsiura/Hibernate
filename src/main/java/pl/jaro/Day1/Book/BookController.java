@@ -10,7 +10,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Controller
-@RequestMapping("/books")
+@RequestMapping("/books/old")
 public class BookController {
 
     private final BookDao bookDao;
@@ -80,4 +80,6 @@ public class BookController {
                 .collect(Collectors.joining());
 
     }
+
+
 }
