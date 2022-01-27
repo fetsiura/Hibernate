@@ -1,10 +1,13 @@
 package pl.jaro.Day1.Person;
+import org.springframework.ui.Model;
 import pl.jaro.Day1.Person.Person;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import pl.jaro.Day1.PersonDetails.PersonDetailsDao;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
 @Controller
@@ -52,6 +55,18 @@ public class PersonController {
         personDao.delete(id);
     }
 
+    @GetMapping("/form")
+    public String getRegistration(Model model){
+        model.addAttribute("person",new Person());
 
+        return "/personRegistrationForm";
+    }
+
+    @PostMapping("/form")
+    @ResponseBody
+    public String processRegistration(Person person){
+        personDao.save(person);
+        return "success";
+    }
 
 }
