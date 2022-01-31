@@ -26,6 +26,10 @@
     <form:select itemValue="id" itemLabel="name"
     path="publisher.id" items="${publishers}"/><br>
 
+    Authors:
+    <form:select  path="authors" itemValue="id" itemLabel="lastName" items="${authors}" multiple="true">
+
+    </form:select>
 
     <input type="submit" value="Save">
 </form:form>

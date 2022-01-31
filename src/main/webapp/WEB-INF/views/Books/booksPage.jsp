@@ -16,7 +16,7 @@
             <td>${book.publisher.name}</td>
             <td>${book.description}</td>
             <td>
-                <a href="<c:url value="/books/edit/${book.id}"/>">Edit</a>
+                <a href="<c:url value="/books/update/${book.id}"/>">Edit</a>
             </td>
             <td>
                 <a href="<c:url value="/books/delete/${book.id}"/>">Delete</a>

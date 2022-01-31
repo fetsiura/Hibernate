@@ -1,6 +1,7 @@
 package pl.jaro.Day1.Book;
 
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -13,22 +14,26 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/books")
+@Slf4j
 public class BookFormController {
 
     private final BookDao bookDao;
     private final PublisherDao publisherDao;
     private final AuthorDao authorDao;
+    private final BookConfirm bookConfirm;
 
-    public BookFormController(BookDao bookDao, PublisherDao publisherDao, AuthorDao authorDao) {
+    public BookFormController(BookDao bookDao, PublisherDao publisherDao, AuthorDao authorDao, BookConfirm bookConfirm) {
         this.bookDao = bookDao;
         this.publisherDao = publisherDao;
         this.authorDao = authorDao;
+        this.bookConfirm = bookConfirm;
     }
 
 
     @GetMapping("/form")
     public String getBookForm(Model model){
         model.addAttribute("book", new Book());
+        model.addAttribute("publishers", publisherDao.findAll());
         return "/Books/bookCreate";
     }
 
@@ -46,22 +51,32 @@ public class BookFormController {
     }
 
     ///edit form
-    @GetMapping("/edit/{id}")
-    public String getEditForm(@PathVariable Long id,
-                              Model model){
+    @GetMapping("/update/{id}")
+    public String getBookEditForm(@PathVariable("id") Long id,
+                                  Model model){
         model.addAttribute("book",bookDao.find(id).orElseThrow());
         return "/Books/bookEdit";
-
     }
 
-    @PostMapping("/update")
-    public String processEditBook(Book book){
+    @PostMapping("/update/{id}")
+    public String editBook(Book book){
         bookDao.merge(book);
+        return "redirect:/books";
+    }
+
+    ///delete form
+    @GetMapping("/delete/{id}")
+    public String deleteBook(@PathVariable Long id){
+        int check = bookConfirm.check();
+        if(check==0){
+            bookDao.delete(id);
+        }
         return "redirect:/books";
     }
 
 
 
+///////////
     @ModelAttribute("publishers")
     public List<Publisher> publishers(){
         return publisherDao.findAll();

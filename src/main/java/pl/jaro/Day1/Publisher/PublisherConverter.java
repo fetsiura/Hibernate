@@ -9,6 +9,7 @@ public class PublisherConverter implements Converter<String, Publisher> {
 
     @Override
     public Publisher convert(String source) {
+
         return publisherDao.find(Long.parseLong(source)).orElseThrow();
     }
 }
