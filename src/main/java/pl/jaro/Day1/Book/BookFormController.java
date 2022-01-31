@@ -20,13 +20,13 @@ public class BookFormController {
     private final BookDao bookDao;
     private final PublisherDao publisherDao;
     private final AuthorDao authorDao;
-    private final BookConfirm bookConfirm;
+    private final Confirm confirm;
 
-    public BookFormController(BookDao bookDao, PublisherDao publisherDao, AuthorDao authorDao, BookConfirm bookConfirm) {
+    public BookFormController(BookDao bookDao, PublisherDao publisherDao, AuthorDao authorDao, Confirm confirm) {
         this.bookDao = bookDao;
         this.publisherDao = publisherDao;
         this.authorDao = authorDao;
-        this.bookConfirm = bookConfirm;
+        this.confirm = confirm;
     }
 
 
@@ -54,7 +54,7 @@ public class BookFormController {
     @GetMapping("/update/{id}")
     public String getBookEditForm(@PathVariable("id") Long id,
                                   Model model){
-        model.addAttribute("book",bookDao.find(id).orElseThrow());
+        model.addAttribute("book",bookDao.getWithAuthors(id).orElseThrow());
         return "/Books/bookEdit";
     }
 
@@ -67,7 +67,7 @@ public class BookFormController {
     ///delete form
     @GetMapping("/delete/{id}")
     public String deleteBook(@PathVariable Long id){
-        int check = bookConfirm.check();
+        int check = confirm.check();
         if(check==0){
             bookDao.delete(id);
         }

@@ -5,12 +5,12 @@ import org.springframework.stereotype.Repository;
 import javax.swing.*;
 import java.awt.*;
 @Repository
-public class BookConfirm {
+public class Confirm {
     public int check (){
         Boolean check = true;
         ImageIcon icon = new ImageIcon("E −\\new.PNG");
         JPanel panel = new JPanel();
-        JLabel label1 = new JLabel("Czy na pewno chcesz usunąć książkę?");
+        JLabel label1 = new JLabel("Czy na pewno chcesz usunąć?");
         label1.setVerticalAlignment(SwingConstants.BOTTOM);
         label1.setBounds(2, 2, 250, 150);
         label1.setHorizontalAlignment(SwingConstants.CENTER);

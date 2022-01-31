@@ -1,14 +1,9 @@
 package pl.jaro.Day1.Author;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import pl.jaro.Day1.Book.Book;
-
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity(name = "authors")
 @Getter

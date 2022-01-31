@@ -13,13 +13,16 @@
 </head>
 <body>
 <form:form  method="post" modelAttribute="book">
-    Title: <form:input path="title" /> <br>
+    Title:
+    <form:input path="title" /> <br>
 <%--    <form:errors path="title" cssClass="my-error"/><br>--%>
 
-    Description: <form:input path="description" /><br>
+    Description:
+    <form:input path="description" /><br>
 <%--    <form:errors path="description"/><br>--%>
 
-    Rating: <form:input path="rating" /><br>
+    Rating:
+    <form:input path="rating" /><br>
 <%--    <form:errors path="rating"/><br>--%>
 
     Publisher:
