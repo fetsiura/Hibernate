@@ -7,6 +7,7 @@ import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.Range;
 import pl.jaro.Day1.Author.Author;
+import pl.jaro.Day1.Category.Category;
 import pl.jaro.Day1.Publisher.Publisher;
 import javax.persistence.*;
 import javax.validation.constraints.Min;
@@ -24,7 +25,7 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Length(min = 5)
+    @Length(min = 5,max = 50)
     private String title;
 
     @Range(min = 1,max=10)
@@ -33,17 +34,22 @@ public class Book {
     @Range(max = 600)
     private String description;
 
-    @NotNull
+//    @NotNull
     @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "publisher_id")
     private Publisher publisher;
 
-    @NotNull
+//    @NotNull
     @ManyToMany(cascade = CascadeType.MERGE)
     private List<Author> authors = new ArrayList<>();
 
-    @Min(2)
-    private Integer pages;
+//    @Min(2)
+//    private Integer pages;
+
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "category_id")
+    private Category category;
+
 
     public void addAuthor(Author author){
         authors.add(author);

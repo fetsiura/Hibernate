@@ -3,6 +3,7 @@ package pl.jaro.Day1;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalEntityManagerFactoryBean;
@@ -24,6 +25,7 @@ import java.util.Locale;
 @EnableWebMvc
 @ComponentScan(basePackages = "pl.jaro.Day1")
 @EnableTransactionManagement
+@EnableJpaRepositories(basePackages = "pl.jaro.Day1")
 public class AppConfig implements WebMvcConfigurer {
 
 

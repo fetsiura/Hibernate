@@ -15,7 +15,7 @@
 <form:form  method="post" modelAttribute="publisher">
     Name:
     <form:input path="name" /> <br>
-<%--    <form:errors path="title" cssClass="my-error"/><br>--%>
+    <form:errors path="name" cssClass="my-error"/><br>
 
     <input type="submit" value="Save">
 </form:form>

@@ -4,16 +4,18 @@ package pl.jaro.Day1.Book;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.jaro.Day1.Author.Author;
 import pl.jaro.Day1.Author.AuthorDao;
 import pl.jaro.Day1.Publisher.Publisher;
 import pl.jaro.Day1.Publisher.PublisherDao;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
-@RequestMapping("/books")
+@RequestMapping("/old2/books")
 public class BookFormController {
 
     private final BookDao bookDao;
@@ -28,7 +30,7 @@ public class BookFormController {
         this.confirm = confirm;
     }
 
-
+    /// add book
     @GetMapping("/form")
     public String getBookForm(Model model){
         model.addAttribute("book", new Book());
@@ -37,19 +39,23 @@ public class BookFormController {
     }
 
     @PostMapping("/form")
-    public String createBook(Book book){
+    public String createBook(@Valid Book book, BindingResult result){
+        if(result.hasErrors()){
+            return "/Books/bookCreate";
+        }
         bookDao.save(book);
         return "redirect:/books";
     }
 
 
+    /////all books
     @GetMapping
     public String showAll(Model model){
         model.addAttribute("books",bookDao.findAll());
         return "Books/booksPage";
     }
 
-    ///edit form
+    ///edit book
     @GetMapping("/update/{id}")
     public String getBookEditForm(@PathVariable("id") Long id,
                                   Model model){
@@ -63,7 +69,7 @@ public class BookFormController {
         return "redirect:/books";
     }
 
-    ///delete form
+    ///delete book
     @GetMapping("/delete/{id}")
     public String deleteBook(@PathVariable Long id){
         int check = confirm.check();

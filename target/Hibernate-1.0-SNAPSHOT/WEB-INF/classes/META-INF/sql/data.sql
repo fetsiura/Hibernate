@@ -24,9 +24,9 @@
 --
 
 --
-insert into authors (firstName, lastName) values ( 'Karol', 'Nowicki');
-insert into authors (firstName, lastName) values ( 'Michał', 'Duda');
-insert into authors (firstName, lastName) values ( 'Jarek', 'Garw');
+insert into authors (firstName, lastName,pesel,email) values ( 'Karol', 'Nowicki','97015423119','karol@gmail.com');
+insert into authors (firstName, lastName,pesel,email) values ( 'Michał', 'Duda','73015523122','Duda@gmail.com');
+insert into authors (firstName, lastName,pesel,email) values ( 'Jarek', 'Garw','81011113164','Garw@gmail.com');
 
 insert into publishers (id,name) values (1,'New Era');
 insert into publishers (id,name) values (2,'Brooklin');

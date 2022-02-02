@@ -10,7 +10,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Controller
-@RequestMapping("/books/old")
+@RequestMapping("/old1/books")
 public class BookController {
 
     private final BookDao bookDao;
