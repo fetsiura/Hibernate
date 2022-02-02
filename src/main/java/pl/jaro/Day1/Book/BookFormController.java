@@ -14,7 +14,6 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/books")
-@Slf4j
 public class BookFormController {
 
     private final BookDao bookDao;

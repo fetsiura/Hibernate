@@ -2,20 +2,18 @@
 
 <table>
     <tr>
-        <th>First Name</th>
-        <th>Last Name</th>
+        <th>Name</th>
         <th>Edit</th>
         <th>Delete</th>
     </tr>
-    <c:forEach var="author" items="${authors}">
+    <c:forEach var="publisher" items="${publishers}">
         <tr>
-            <td>${author.firstName}</td>
-            <td>${author.lastName}</td>
+            <td>${publisher.name}</td>
             <td>
-                <a href="<c:url value="/authors/update/${author.id}"/>">Edit</a>
+                <a href="<c:url value="/publishers/update/${publisher.id}"/>">Edit</a>
             </td>
             <td>
-                <a href="<c:url value="/authors/delete/${author.id}"/>">Delete</a>
+                <a href="<c:url value="/publishers/delete/${publisher.id}"/>">Delete</a>
             </td>
         </tr>
     </c:forEach>
