@@ -4,6 +4,8 @@
     <tr>
         <th>First Name</th>
         <th>Last Name</th>
+        <th>Pesel</th>
+        <th>Email</th>
         <th>Edit</th>
         <th>Delete</th>
     </tr>
@@ -11,6 +13,8 @@
         <tr>
             <td>${author.firstName}</td>
             <td>${author.lastName}</td>
+            <td>${author.pesel}</td>
+            <td>${author.email}</td>
             <td>
                 <a href="<c:url value="/authors/update/${author.id}"/>">Edit</a>
             </td>

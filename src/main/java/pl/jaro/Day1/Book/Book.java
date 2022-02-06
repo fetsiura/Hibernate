@@ -11,7 +11,9 @@ import pl.jaro.Day1.Category.Category;
 import pl.jaro.Day1.Publisher.Publisher;
 import javax.persistence.*;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,13 +27,14 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Length(min = 5,max = 50)
+    @NotEmpty
+    @Size(min = 5,max = 50)
     private String title;
 
     @Range(min = 1,max=10)
     private Integer rating;
 
-    @Range(max = 600)
+    @Size(max = 600)
     private String description;
 
 //    @NotNull

@@ -2,20 +2,23 @@ package pl.jaro.Day1.Author;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import pl.jaro.Day1.Book.Confirm;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/authors")
 public class AuthorController {
 
+    private final AuthorRepository authorRepository;
     private final AuthorDao authorDao;
     private final Confirm confirm;
 
-    public AuthorController(AuthorDao authorDao, Confirm confirm) {
+    public AuthorController(AuthorRepository authorRepository, AuthorDao authorDao, Confirm confirm) {
+        this.authorRepository = authorRepository;
         this.authorDao = authorDao;
         this.confirm = confirm;
     }
@@ -63,5 +66,19 @@ public class AuthorController {
         return "redirect:/authors";
     }
 
+    @GetMapping("/option")
+    public String getWithOptions(@RequestParam Optional<String> pesel,
+                                 @RequestParam Optional<String> email,
+                                 Model model){
+        List<Author> authors = new ArrayList<>();
 
+        if(!pesel.isEmpty()){
+            authors = pesel.map(authorRepository::findWhenPeselStartsWith).orElseThrow();
+        }
+        if(!email.isEmpty()){
+            authors = email.map(authorRepository::findWhenEmailStartsWith).orElseThrow();
+        }
+        model.addAttribute("authors",authors);
+        return "/Authors/authorsPage";
+    }
 }

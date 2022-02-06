@@ -12,8 +12,9 @@
 <body>
 EDIT:
 
-<form:form method="post" modelAttribute="book"  >
+<form:form method="post" action="/books/update" modelAttribute="book"  >
     <form:hidden path="id"/>
+
     Title: <form:input path="title" /> <br>
     <form:errors path="title" cssClass="my-error"/><br>
 
@@ -28,6 +29,10 @@ EDIT:
     Publisher:
     <form:select itemValue="id" itemLabel="name"
                  path="publisher" items="${publishers}"/><br>
+
+    Authors:
+    <form:select  path="authors" itemValue="id" itemLabel="lastName" items="${authors}" multiple="true">
+    </form:select>
 
     <input type="submit" value="Save">
 </form:form>
