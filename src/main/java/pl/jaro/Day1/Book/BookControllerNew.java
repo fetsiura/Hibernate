@@ -89,6 +89,7 @@ public class BookControllerNew {
             return "/Books/BookEdit";
         }
         bookRepository.save(book);
+
         return "redirect:/books";
     }
 
